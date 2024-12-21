@@ -1,0 +1,21 @@
+
+.sidebarContainer{
+    background-color: bisque;
+}
+
+.sidebarContainer .ps-sidebar-container .ps-menu-button:hover{
+    background-color: rgba(239, 155, 40, 0.3);
+}
+
+.IC{
+    /* display: none; */
+    opacity: 0;
+    transition: 1s;
+    cursor: pointer;
+}
+
+.SideBar:hover{
+    .IC{
+        opacity: 1;
+    }
+}

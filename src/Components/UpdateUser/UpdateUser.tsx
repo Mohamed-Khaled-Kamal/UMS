@@ -21,6 +21,7 @@ export default function UpdateUser() {
   
   const [userData, setUserData]:any = useState([]);
 
+  let[loading,setLoading]=useState(false)
   
   const { id } = useParams<{ id: string }>();
   
@@ -50,8 +51,10 @@ export default function UpdateUser() {
 
   const getUser = async () => {
     try {
+      setLoading(true)
       const response = await axios.get(`https://dummyjson.com/users/${id}`);
       setUserData(response.data);
+      setLoading(false)
     } catch (error) {
       console.log(error);
       toast.error("Failed to fetch user data");
@@ -80,6 +83,7 @@ export default function UpdateUser() {
 
   return (
     <>
+      {loading?<PreLoader/>: <>
       <div className="d-flex justify-content-between m-2">
         <h3>Update User</h3>
         <h3>#{userData.id} - {userData.firstName} {userData.lastName}</h3>
@@ -203,6 +207,7 @@ export default function UpdateUser() {
           <button className="btn btn-warning w-50">Update</button>
         </div>
       </form>
+    </>}
     </>
   );
 }

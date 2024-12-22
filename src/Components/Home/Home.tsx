@@ -9,7 +9,7 @@ import { TiUserAdd } from 'react-icons/ti'
 export default function Home() {
   return (
     <>
-      <div className="container-fluid">
+      {/* <div className="container-fluid">
 
         <div className="row justify-content-around p-2">
 
@@ -84,8 +84,8 @@ export default function Home() {
 
         </div>
 
-        </div>
-      
+        </div> */}
+      Home
     </>
   )
 }

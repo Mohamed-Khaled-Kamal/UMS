@@ -1,36 +1,48 @@
-import axios from 'axios'
-import React from 'react'
-import { useForm } from 'react-hook-form'
-import { data, useNavigate } from 'react-router-dom'
-import { toast } from 'react-toastify'
+import axios from "axios";
+import { useForm} from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-export default function AddUser() {
-  
-  let { register, handleSubmit, formState: { errors } } = useForm()
+interface UserFormData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  age: number;
+  phone: number;
+  birthDate: string;
+}
 
-  let navigate = useNavigate()
+export default function UserData() {
   
-  let onsubmit = async(data) => {
+  const navigate = useNavigate();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<UserFormData>();
+
+  const onSubmit = async (data:UserFormData) => {
     try {
-      let response = await axios.post("https://dummyjson.com/users/add", data)
-      console.log(response)
-      toast.success("Data Added Successfuly !!!")
-      navigate("/dashbord/userlist")
+       await axios.post("https://dummyjson.com/users/add", data);
+      
+      toast.success("Yeah! User added successfully!");
+      navigate("/dashboard/users-list");
     } catch (error) {
-      console.log(error)
-      toast.error("Somthing Wrong!!!!!!!!!!")
+      console.error(error);
+      toast.error("Sorry, something went wrong.");
     }
-  }
+  };
 
   return (
     <>
-       <div className="d-flex justify-content-between m-2">
-          <h3>Add User</h3>
-        </div>
+      <div className="m-3">
+        <h3>Add User</h3>
+      </div>
       <hr />
-      
+
       <form
-        onSubmit={handleSubmit(onsubmit)}
+        onSubmit={handleSubmit(onSubmit)}
         className="shadow-lg mt-5 m-5 p-4 border rounded"
       >
         <div className="row">
@@ -43,7 +55,7 @@ export default function AddUser() {
                 placeholder="Enter your Firstname"
                 {...register("firstName", { required: "First name is required" })}
               />
-            {errors.firstName && (
+              {errors.firstName && (
                 <span className="text-danger">{errors.firstName.message}</span>
               )}
             </div>
@@ -72,12 +84,15 @@ export default function AddUser() {
                 type="email"
                 className="form-control"
                 placeholder="Enter your email"
-                {...register("email",{required:"Email is required",pattern: {
-                  value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
-                  message: "Email should be valid",
-                },})}
+                {...register("email", {
+                  required: "Email is required",
+                  pattern: {
+                    value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
+                    message: "Email should be valid",
+                  },
+                })}
               />
-            {errors.email && (
+              {errors.email && (
                 <span className="text-danger">{errors.email.message}</span>
               )}
             </div>
@@ -91,8 +106,7 @@ export default function AddUser() {
                 placeholder="Enter your Age"
                 {...register("age", {
                   required: "Age is required",
-                  min: { value: 17, message: "Min age is 17"},
-                  max: { value: 60, message: "Max age is 60" },
+                  max: { value: 50, message: "Max age is 50" },
                 })}
               />
               {errors.age && (
@@ -138,5 +152,5 @@ export default function AddUser() {
         </div>
       </form>
     </>
-  )
+  );
 }

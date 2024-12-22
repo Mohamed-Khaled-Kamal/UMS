@@ -11,7 +11,7 @@ export default function NavBar() {
 
   return (
     <>
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg" className="bg-body-tertiary sticky-top">
       <Container>
         <Navbar.Brand href="#home" className='text-warning fs-3'>UMS</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

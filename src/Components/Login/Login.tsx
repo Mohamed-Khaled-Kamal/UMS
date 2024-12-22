@@ -1,7 +1,7 @@
-import React, { useContext } from 'react'
+import  { useContext } from 'react'
 import './Login.css'
 import { useForm } from 'react-hook-form'
-import { data, useNavigate } from 'react-router-dom'
+import {  useNavigate } from 'react-router-dom'
 import axios from "axios";
 import { toast } from 'react-toastify';
 import { AuthContext } from '../Context/AuthContext';
@@ -13,13 +13,16 @@ export default function Login() {
     password: string;
   }
 
+  interface AuthContextType{
+    saveUserData: () => void;
+  }
   
 
   let { register, handleSubmit, formState: { errors } } = useForm<LoginFormInputs>()
 
   let navigate = useNavigate()
   
-  let {saveUserData}=useContext(AuthContext)
+  let {saveUserData}=useContext(AuthContext) as AuthContextType
   
   let onSubmit = async (data:LoginFormInputs) => {
     try {

@@ -1,7 +1,7 @@
-import React from 'react'
+
 import { Outlet } from 'react-router-dom'
-import SideBar from '../Sidebar/Sidebar'
 import NavBar from '../Navbar/Navbar'
+import SideBar from '../Sidebar/SideBar'
 
 
 export default function MasterLatout() {
@@ -9,8 +9,8 @@ export default function MasterLatout() {
     <>
       
         <div className="d-flex">
-          <div className=" p-0"><SideBar/></div>
-          <div className="w-100 p-0 vh-100 fixed">
+          <div className=" p-0  "><SideBar/></div>
+          <div className="w-100 p-0 vh-100 overflow-auto">
             <NavBar />
 
             <Outlet/>

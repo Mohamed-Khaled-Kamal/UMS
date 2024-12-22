@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import  { useEffect, useState } from 'react'
 import { Table } from 'react-bootstrap'
 import { MdDeleteOutline, MdOutlineEdit } from 'react-icons/md'
 import './UserList.css'
@@ -12,20 +12,20 @@ import PreLoader from '../PreLoader/PreLoader'
 
 export default function UserList() {
 
-  let [userId, setUserId] = useState(0)
-  let [userData,setUserData] = useState({})
+  let [userId, setUserId] = useState<Number|null>(null)
+  let [userData,setUserData] = useState<any>({})
   const [show, setShow] = useState(false);
   let navigate = useNavigate()
   let[loading,setLoading]=useState(false)
 
   const handleClose = () => setShow(false);
-  const handleShow = (user) => {
+  const handleShow = (user:any) => {
     setShow(true);
     setUserId(user.id)
     setUserData(user)
   } 
 
-  let [users,setUsers]=useState([])
+  let [users,setUsers]=useState<any[]>([])
   let getusers = async() => {
     try {
       setLoading(true)

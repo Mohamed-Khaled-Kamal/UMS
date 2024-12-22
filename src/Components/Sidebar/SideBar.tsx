@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import { useContext, useState } from 'react'
 import { Sidebar, Menu, MenuItem } from 'react-pro-sidebar';
 import { Link, useNavigate } from 'react-router-dom';
 import './SideBar.css'
@@ -7,16 +7,15 @@ import { FaArrowAltCircleLeft, FaArrowAltCircleRight, FaUsers } from "react-icon
 import { AiOutlineUsergroupAdd } from "react-icons/ai";
 import { CgProfile } from "react-icons/cg";
 import { CiLogout } from "react-icons/ci";
-import admin from '../../assets/imgs/admin.jpg'
 import { AuthContext } from '../Context/AuthContext';
-// import MK from '../../assets/imgs/M.Khaled.jpg'
+
 
 
 
 
 export default function SideBar() {
 
-  let {userData}=useContext(AuthContext)
+  let {userData}:any=useContext(AuthContext)
 
   let [collapsed, serCollapsed] = useState(false)
 

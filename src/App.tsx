@@ -8,7 +8,6 @@ import Login from './Components/Login/Login'
 import MasterLayout from './Components/MasterLayout/MasterLayout'
 import UserList from './Components/UserList/UserList'
 import AddUser from './Components/AddUser/AddUser'
-import Address from './Components/Address/Address'
 import Profile from './Components/Profile/Profile'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -33,7 +32,6 @@ function App() {
       { path: "home", element: <Home /> },
       { path: "userlist", element: <UserList /> },
       { path: "adduser", element: <AddUser /> },
-      { path: "address", element: <Address /> },
       { path: "profile", element: <Profile /> },
       { path: "updateuser/:id" , element: <UpdateUser/>}
       

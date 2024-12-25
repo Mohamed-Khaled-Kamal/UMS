@@ -5,9 +5,13 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { AuthContext } from '../Context/AuthContext';
 
+
+
 export default function NavBar() {
 
-  let {userData}:any = useContext(AuthContext) 
+  let { userData }: any = useContext(AuthContext) 
+  
+ 
 
   return (
     <>
@@ -18,7 +22,8 @@ export default function NavBar() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="#home">Home</Nav.Link>
-              <Nav.Link href="#link">Hello {userData?.firstName}</Nav.Link>
+              <Nav.Link className='fw-bold' href="#link">Hello {userData?.firstName}</Nav.Link>
+
           
           </Nav>
         </Navbar.Collapse>

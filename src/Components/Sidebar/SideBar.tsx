@@ -19,6 +19,8 @@ export default function SideBar() {
 
   let [collapsed, serCollapsed] = useState(false)
 
+  
+
   let navigate=useNavigate()
   
   let toggleCollapsed = () => {
@@ -36,7 +38,7 @@ export default function SideBar() {
         {collapsed ? <FaArrowAltCircleRight className='IC' onClick={toggleCollapsed} size={25} />
           : <FaArrowAltCircleLeft className='IC' onClick={toggleCollapsed} size={25} />}
          
-        <div className="sidebar-title UMS ms-4 mt-2 ps-3 ">
+        <div className="sidebar-title UMS ms-2 mt-2 ps-3 ">
           <h5>UMS</h5>
         </div>
 
@@ -62,7 +64,7 @@ export default function SideBar() {
     <MenuItem icon={<FaUsers size={25} />} component={<Link to="userlist" />}> Users</MenuItem>
     <MenuItem icon={<AiOutlineUsergroupAdd size={25} />} component={<Link to="adduser" />}> Add User</MenuItem>
     <MenuItem icon={<CgProfile size={25} />} component={<Link to="profile" />}> Profile</MenuItem>
-    <MenuItem icon={<CiLogout size={25} />} onClick={logout}> Log Out</MenuItem>
+    <MenuItem icon={<CiLogout color='red' size={25} />} className='log-out' onClick={logout}> Log Out</MenuItem>
 
   </Menu>
 </Sidebar>;

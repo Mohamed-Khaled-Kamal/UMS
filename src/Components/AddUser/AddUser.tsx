@@ -13,7 +13,7 @@ interface UserFormData {
   birthDate: string;
 }
 
-export default function UserData() {
+export default function AddUser() {
   
   
   const navigate = useNavigate();
@@ -28,7 +28,7 @@ export default function UserData() {
        await axios.post("https://dummyjson.com/users/add", data);
       
       toast.success("Yeah! User added successfully!");
-      navigate("/dashboard/users-list");
+      navigate("/dashbord/userlist");
     } catch (error) {
       console.error(error);
       toast.error("Sorry, something went wrong.");

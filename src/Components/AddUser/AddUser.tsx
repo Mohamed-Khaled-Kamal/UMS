@@ -107,7 +107,8 @@ export default function AddUser() {
                 placeholder="Enter your Age"
                 {...register("age", {
                   required: "Age is required",
-                  max: { value: 50, message: "Max age is 50" },
+                  min:{value:15 , message :"Min Age is 15"},
+                  max: { value: 50, message: "Max Age is 50" },
                 })}
               />
               {errors.age && (

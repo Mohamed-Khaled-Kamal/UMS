@@ -12,6 +12,7 @@ import Profile from './Components/Profile/Profile'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import UpdateUser from './Components/UpdateUser/UpdateUser'
+import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute'
 
 
 function App() {
@@ -25,7 +26,7 @@ function App() {
     ]
 },{
   path: 'dashbord',
-    element:<MasterLayout/> ,
+    element:<ProtectedRoute><MasterLayout/></ProtectedRoute> ,
     errorElement: <Notfound />,
     children: [
       { index: true, element: <Home /> },
